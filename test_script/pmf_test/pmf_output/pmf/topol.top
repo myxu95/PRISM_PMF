@@ -1,0 +1,32 @@
+; Test topology file
+[ defaults ]
+1               2               yes             0.5     0.8333
+
+[ moleculetype ]
+; Name            nrexcl
+Protein_chain_A     3
+
+[ atoms ]
+;   nr       type  resnr residue  atom   cgnr     charge       mass
+     1         N      1    ALA      N      1      -0.415      14.01
+     2        CT      1    ALA     CA      1       0.140      12.01
+     3         C      1    ALA      C      1       0.597      12.01
+     4         O      1    ALA      O      1      -0.567      16.00
+
+[ moleculetype ]
+; Name            nrexcl
+LIG                 3
+
+[ atoms ]
+;   nr       type  resnr residue  atom   cgnr     charge       mass
+     1        CT      1    LIG     C1      1       0.000      12.01
+     2        CT      1    LIG     C2      1       0.000      12.01
+
+[ system ]
+; Name
+Test system
+
+[ molecules ]
+; Compound        #mols
+Protein_chain_A     1
+LIG                 1

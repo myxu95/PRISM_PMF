@@ -1,0 +1,10 @@
+# Pull force data
+@ title "Pull Force"
+@ xaxis label "Time (ps)"
+@ yaxis label "Force (kJ/mol/nm)"
+0.0    0.0
+1.0    10.5
+2.0    25.3
+3.0    45.1
+4.0    32.8
+5.0    15.2

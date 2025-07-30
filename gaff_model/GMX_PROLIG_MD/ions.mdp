@@ -1,0 +1,34 @@
+; ions.mdp - Parameters for adding ions
+integrator  = steep
+emtol       = 200.0
+emstep      = 0.01
+nsteps      = 10000
+
+; Output
+nstxout     = 500
+nstvout     = 500
+nstenergy   = 500
+nstlog      = 500
+
+; Neighbor searching
+cutoff-scheme   = Verlet
+ns_type         = grid
+nstlist         = 10
+rcoulomb        = 1.0
+rvdw            = 1.0
+
+; Electrostatics
+coulombtype     = PME
+pme_order       = 4
+fourierspacing  = 0.16
+
+; Temperature and pressure coupling are off
+tcoupl      = no
+pcoupl      = no
+
+; Periodic boundary conditions
+pbc         = xyz
+
+; Constraints
+constraints             = h-bonds
+constraint-algorithm    = lincs

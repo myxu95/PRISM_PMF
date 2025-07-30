@@ -1,0 +1,104 @@
+Start time: 2025年 07月 30日 星期三 12:38:59 CST
+SLURM_JOB_NODELIST: node7
+hostname: node7
+CUDA_VISIBLE_DEVICES: 0
+Job directory: /public/home/xmy/PRISM/test/PRISM/prism/GMX_PROLIG_PMF/smd
+Gromacs info:
+                         :-) GROMACS - gmx, 2023.2 (-:
+
+Executable:   /public/software/apps/gromacs/2023.2/bin/gmx
+Data prefix:  /public/software/apps/gromacs/2023.2
+Working dir:  /public/home/xmy/PRISM/test/PRISM/prism/GMX_PROLIG_PMF/smd
+Command line:
+  gmx --version
+
+GROMACS version:    2023.2
+Precision:          mixed
+Memory model:       64 bit
+MPI library:        thread_mpi
+OpenMP support:     enabled (GMX_OPENMP_MAX_THREADS = 128)
+GPU support:        CUDA
+NB cluster size:    8
+SIMD instructions:  AVX2_256
+CPU FFT library:    fftw-3.3.10-sse2-avx2-avx2_128
+GPU FFT library:    cuFFT
+Multi-GPU FFT:      none
+RDTSCP usage:       enabled
+TNG support:        enabled
+Hwloc support:      disabled
+Tracing support:    disabled
+C compiler:         /public/software/compiler/gcc/9.5.0/bin/gcc GNU 9.5.0
+C compiler flags:   -fexcess-precision=fast -funroll-all-loops -mavx2 -mfma -Wno-missing-field-initializers -O3 -DNDEBUG
+C++ compiler:       /public/software/compiler/gcc/9.5.0/bin/g++ GNU 9.5.0
+C++ compiler flags: -fexcess-precision=fast -funroll-all-loops -mavx2 -mfma -Wno-missing-field-initializers -Wno-cast-function-type-strict -fopenmp -O3 -DNDEBUG
+BLAS library:       External - detected on the system
+LAPACK library:     External - detected on the system
+CUDA compiler:      /usr/local/cuda/bin/nvcc nvcc: NVIDIA (R) Cuda compiler driver;Copyright (c) 2005-2023 NVIDIA Corporation;Built on Tue_Jun_13_19:16:58_PDT_2023;Cuda compilation tools, release 12.2, V12.2.91;Build cuda_12.2.r12.2/compiler.32965470_0
+CUDA compiler flags:-std=c++17;--generate-code=arch=compute_50,code=sm_50;--generate-code=arch=compute_52,code=sm_52;--generate-code=arch=compute_60,code=sm_60;--generate-code=arch=compute_61,code=sm_61;--generate-code=arch=compute_70,code=sm_70;--generate-code=arch=compute_75,code=sm_75;--generate-code=arch=compute_80,code=sm_80;--generate-code=arch=compute_86,code=sm_86;--generate-code=arch=compute_89,code=sm_89;--generate-code=arch=compute_90,code=sm_90;-Wno-deprecated-gpu-targets;--generate-code=arch=compute_53,code=sm_53;--generate-code=arch=compute_80,code=sm_80;-use_fast_math;-Xptxas;-warn-double-usage;-Xptxas;-Werror;;-fexcess-precision=fast -funroll-all-loops -mavx2 -mfma -Wno-missing-field-initializers -Wno-cast-function-type-strict -fopenmp -O3 -DNDEBUG
+CUDA driver:        12.20
+CUDA runtime:       12.20
+
+=== SMD Simulation ===
+Step 1: Generating TPR file...
+                      :-) GROMACS - gmx grompp, 2023.2 (-:
+
+Executable:   /public/software/apps/gromacs/2023.2/bin/gmx
+Data prefix:  /public/software/apps/gromacs/2023.2
+Working dir:  /public/home/xmy/PRISM/test/PRISM/prism/GMX_PROLIG_PMF/smd
+Command line:
+  gmx grompp -f smd.mdp -c md.gro -n index.ndx -p topol.top -o smd.tpr -maxwarn 10
+
+Ignoring obsolete mdp entry 'title'
+Replacing old mdp entry 'nstxtcout' by 'nstxout-compressed'
+
+WARNING 1 [file smd.mdp, line 72]:
+  Unknown left-hand 'rvdv' in parameter file
+
+
+Generating 1-4 interactions: fudge = 0.5
+
+ERROR 1 [file topol.top, line 29804]:
+  No default Per. Imp. Dih. types
+
+
+ERROR 2 [file topol.top, line 29860]:
+  No default Per. Imp. Dih. types
+
+
+There was 1 WARNING
+
+-------------------------------------------------------
+Program:     gmx grompp, version 2023.2
+Source file: src/gromacs/gmxpreprocess/grompp.cpp (line 2198)
+
+Fatal error:
+There were 2 errors in input file(s)
+
+For more information and tips for troubleshooting, please check the GROMACS
+website at http://www.gromacs.org/Documentation/Errors
+-------------------------------------------------------
+Setting the LD random seed to 1560000383
+
+Generated 4753 of the 4753 non-bonded parameter combinations
+
+Generated 4753 of the 4753 1-4 parameter combinations
+
+Excluding 3 bonded neighbours molecule type 'Protein_chain_A'
+
+turning H bonds into constraints...
+
+Excluding 3 bonded neighbours molecule type 'LIG'
+
+turning H bonds into constraints...
+
+Excluding 2 bonded neighbours molecule type 'SOL'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'NA'
+
+turning H bonds into constraints...
+
+Excluding 1 bonded neighbours molecule type 'CL'
+
+turning H bonds into constraints...
