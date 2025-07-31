@@ -15,8 +15,7 @@ Analysis modules:
 - pmf_analyze_smd() - Analyze SMD force profiles
 - pmf_analyze_pmf() - Analyze final PMF results
 
-Author: PRISM Team (Step-by-Step API)
-Version: 5.1 (Optimized)
+Author: PRISM Team 
 """
 
 import os
@@ -2193,3 +2192,87 @@ def get_example_config():
 if __name__ == "__main__":
     print("PMF Step-by-Step API - Optimized Version")
     print("=" * 50)
+    print("""
+QUICK START GUIDE:
+==================
+
+1. SETUP:
+---------
+import pmf
+
+# Get example configuration and customize
+config = pmf.get_example_config()
+config['reference_group'] = 'Protein'  # Adjust as needed
+config['moving_group'] = 'LIG'         # Adjust as needed
+
+# Setup PMF system
+pmf.setup(config, "./GMX_PROLIG_PMF", "./gaff_model")
+pmf.print_workflow_summary()
+
+2. EXECUTION:
+-------------
+# Step 1: Prepare SMD
+results1 = pmf.pmf_step1_smd_preparation()
+# Run manually: cd GMX_PROLIG_PMF/smd && bash run_smd.sh
+# Analyze: pmf.pmf_analyze_smd()
+
+# Step 2: Prepare Umbrella Sampling  
+results2 = pmf.pmf_step2_umbrella_preparation()
+# Run manually: cd GMX_PROLIG_PMF/umbrella && bash run_all_umbrella.sh parallel
+
+# Step 3: WHAM Analysis
+results3 = pmf.pmf_step3_wham_analysis()
+# Detailed analysis: pmf.pmf_analyze_pmf()
+
+3. MONITORING:
+--------------
+status = pmf.get_workflow_status()          # Check progress
+estimates = pmf.get_expected_runtime_estimates()  # Plan resources
+pmf.clean_workflow(['step1'])               # Clean specific steps
+
+REQUIRED FILE STRUCTURE:
+=======================
+Your modeling task directory must contain:
+  modeling_task_dir/  (e.g., gaff_model/)
+  ├── GMX_PROLIG_MD/
+  │   ├── prod/
+  │   │   └── md.gro          # Final MD structure (REQUIRED)
+  │   ├── topol.top           # Topology file (REQUIRED)
+  │   └── posre.itp           # Position restraint file (REQUIRED)
+  └── LIG.amb2gmx/            # Ligand force field directory (REQUIRED)
+
+Generated PMF workflow structure:
+  GMX_PROLIG_PMF/
+  ├── smd/                    # Step 1 results
+  │   ├── run_smd.sh         # Manual execution script
+  │   └── results/           # SMD simulation outputs
+  ├── umbrella/              # Step 2 results  
+  │   ├── run_all_umbrella.sh  # Manual execution script
+  │   ├── window_000/        # Individual windows
+  │   └── window_001/        # ...
+  └── analysis/              # Step 3 results
+      ├── wham/             # WHAM outputs
+      └── pmf_curve.png     # Final PMF plot
+
+KEY OPTIMIZATIONS:
+=================
+- Removed redundant validation functions
+- Streamlined file checking with essential-only validation
+- Unified English comments throughout
+- Simplified error handling
+- Optimized memory usage in trajectory processing
+- Enhanced plotting with matplotlib
+- Comprehensive workflow monitoring
+- Modular analysis functions
+
+NOTES:
+======
+- All comments are now in English
+- Removed excessive input validation for better performance
+- Focus on essential functionality and user experience
+- Clear separation of preparation, execution, and analysis phases
+- Better error messages and user guidance
+""")
+    
+    print("PMF Step-by-Step API ready for use!")
+    print("Call pmf.get_example_config() to get started with configuration.")
